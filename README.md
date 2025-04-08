@@ -1,47 +1,77 @@
-# 🚀 Spaceship Survival Prediction
+# 🚀 Spaceship Titanic Prediction
 
-This project uses machine learning models (**LightGBM** and **CatBoost**) to predict whether passengers on the Spaceship Titanic were transported to an alternate dimension. It includes data preprocessing, feature engineering, model training, and an ensemble prediction pipeline.
+## Description
+The Spaceship Titanic Prediction project is a machine learning endeavor focused on predicting whether passengers on the fictional Spaceship Titanic were transported to an alternate dimension. This project leverages LightGBM and CatBoost models for classification, emphasizing robust feature engineering and data preprocessing.
 
----
+## Key Features
+- **Advanced Feature Engineering**: Includes cabin splitting, spending features, group features, and categorical encoding.
+- **Ensemble Model**: Combines predictions from LightGBM and CatBoost for improved accuracy.
+- **Robust Data Handling**: Manages missing values with sensible defaults or imputation using RobustScaler.
 
-## 🧠 Models Used
+## Installation
+To set up the project, follow these steps:
 
-- **LightGBM** – Gradient Boosting Decision Trees, optimized for class imbalance and performance.
-- **CatBoost** – Efficient boosting model that handles categorical features natively.
-- **Ensemble** – Soft voting strategy to combine predictions from both models for better accuracy.
-
----
-
-## 🛠️ Features Engineered
-
-- **Cabin Splitting**: Extracted `Cabin_Deck`, `Cabin_Num`, and `Cabin_Side` from the `Cabin` column.
-- **Spending Features**: Total spending and luxury usage indicators (`TotalSpending`, `HasLuxuryService`, `LuxuryCount`).
-- **Group Features**: `GroupSize` based on shared cabin number and `IsAlone` flag.
-- **Categorical Encoding**: Used `LabelEncoder` for all categorical features.
-
----
-1. Clone the repo:
+1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/spaceship-survival-prediction.git
-   cd spaceship-survival-prediction
-2. Install requirements:
+   git clone https://github.com/gag3301v/spaceship_kagle_prediction.git
+   cd spaceship_kagle_prediction
+   ```
 
+2. Install dependencies:
    ```bash
-    pip install -r requirements.txt
-3. Add your train.csv and test.csv to the data/ folder.
+   pip install -r requirements.txt
+   ```
 
-4. Run the pipeline:
-    ```bash 
-   python main.py
-   
-5. Check output/ensemble_submission.csv for the final predictions.
+## Usage
+### Example Code Snippet
+Here’s how you can run the script:
 
-# 📌 Notes
-    Missing values are handled with sensible defaults or imputation.
-    
-    The ensemble generally performs better than either model individually.
-    
-    RobustScaler is used to scale numeric features for LightGBM (CatBoost handles raw data better).
+```python
+# Import necessary libraries
+import pandas as pd
 
-# 📄 License
-    This project is released under the MIT License.
+# Load and preprocess data
+train_data = pd.read_csv('data/train.csv')
+test_data = pd.read_csv('data/test.csv')
+
+# Run the main.py script
+# python main.py
+```
+
+### Running Tests (if available)
+If tests are included, you can run them using:
+```bash
+pytest
+```
+
+## Project Structure
+The project directory is structured as follows:
+
+```
+spaceship_kagle_prediction/
+├── data/
+│   ├── train.csv
+│   └── test.csv
+├── models/
+│   ├── lightgbm_model.pkl
+│   └── catboost_model.pkl
+├── main.py
+├── requirements.txt
+└── README.md
+```
+
+## Contributing
+Contributions are welcome! Please follow these guidelines:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeatureName`).
+3. Make your changes and commit them (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/YourFeatureName`).
+5. Open a pull request.
+
+## License
+This project is licensed under the [MIT License](LICENSE). See the [LICENSE](LICENSE) file for more details.
+
+---
+
+Feel free to explore and contribute to this exciting machine learning project! 🚀
